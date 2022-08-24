@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expedier_test/core/utils/colors.dart';
 import 'package:expedier_test/core/utils/strings.dart';
@@ -42,7 +40,7 @@ class _OnboardingState extends State<Onboarding> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 70),
+              const SizedBox(height: 50),
               CarouselSlider.builder(
                 carouselController: _controller,
                 itemCount: slides.length,

@@ -49,42 +49,75 @@ class AppTextField extends StatefulWidget {
 }
 
 class _AppTextFieldState extends State<AppTextField> {
+  String? error;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.height,
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        color: widget.backgroundColor ?? Colors.white,
-      ),
-      child: TextFormField(
-        obscureText: widget.obscureText,
-        readOnly: widget.readOnly,
-        decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
-          hintText: widget.hintText,
-          filled: false,
-          hintStyle: TextStyle(
-            color: Colors.black.withOpacity(0.5),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: widget.height,
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            color: widget.backgroundColor ?? Colors.white,
           ),
-          errorBorder: InputBorder.none,
-          errorStyle: const TextStyle(
-            height: 0.0,
-            fontSize: 0.0,
-            color: Colors.yellow,
+          child: TextFormField(
+            textAlign: TextAlign.left,
+            onChanged: (val) {
+              widget.validateFunction != null
+                  ? error = widget.validateFunction!(val)
+                  : error = null;
+              setState(() {});
+              if (widget.onChange != null) widget.onChange!(val);
+            },
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: widget.validateFunction != null
+                ? widget.validateFunction!
+                : (value) {
+                    return null;
+                  },
+            obscureText: widget.obscureText,
+            readOnly: widget.readOnly,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(top: 0, bottom: 3),
+              suffixIcon: widget.suffixIcon,
+              hintText: widget.hintText,
+              filled: false,
+              hintStyle: TextStyle(
+                color: Colors.black.withOpacity(0.5),
+              ),
+              errorBorder: InputBorder.none,
+              errorStyle: const TextStyle(
+                height: 0.0,
+                fontSize: 0.0,
+                color: Colors.yellow,
+              ),
+              focusedErrorBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+              labelStyle: TextStyle(
+                color: Colors.black.withOpacity(0.5),
+              ),
+              border: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+            ),
+            controller: widget.controller,
           ),
-          focusedErrorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          labelStyle: TextStyle(
-            color: Colors.black.withOpacity(0.5),
-          ),
-          border: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
         ),
-        controller: widget.controller,
-      ),
+        if (error != null)
+          const SizedBox(
+            height: 5.0,
+          ),
+        if (error != null)
+          Text(
+            error!,
+            style: const TextStyle(
+              color: Colors.red,
+              fontSize: 12.0,
+            ),
+          ),
+      ],
     );
   }
 }

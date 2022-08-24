@@ -1,5 +1,6 @@
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:expedier_test/core/utils/colors.dart';
+import 'package:expedier_test/features/authentication/signup/presentation/sign_up.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:expedier_test/general_widgets/app_textfield.dart';
 import 'package:expedier_test/general_widgets/country_code_textfield.dart';
@@ -49,7 +50,7 @@ class _LoginState extends State<Login> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 85.0, left: 22, right: 22),
+            padding: const EdgeInsets.only(top: 50.0, left: 22, right: 22),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -151,7 +152,14 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(width: 5),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUp(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         "Register",
                         style: TextStyle(
