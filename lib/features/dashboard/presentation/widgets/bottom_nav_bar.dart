@@ -17,7 +17,6 @@ class AnimatedBottomBar extends StatefulWidget {
 }
 
 class _AnimatedBottomBarState extends State<AnimatedBottomBar> {
-  int selectedBarIndex = 0;
   @override
   Widget build(BuildContext context) {
     bool largeScreen = MediaQuery.of(context).size.width > 800 ? true : false;
@@ -36,12 +35,12 @@ class _AnimatedBottomBarState extends State<AnimatedBottomBar> {
       height: 70,
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: _buildBarItems(selectedBarIndex, largeScreen),
+        children: _buildBarItems(largeScreen),
       ),
     );
   }
 
-  List<Widget> _buildBarItems(selectedBarIndex, largeScreen) {
+  List<Widget> _buildBarItems(largeScreen) {
     List<Widget> bottombaritem = [];
     for (int i = 0; i < widget.barItems.length; i++) {
       BarItem item = widget.barItems[i];
@@ -49,12 +48,11 @@ class _AnimatedBottomBarState extends State<AnimatedBottomBar> {
       bottombaritem.add(
         Expanded(
           child: MaterialButton(
-            onPressed: i == 2
-                ? null
-                : () {
-                    selectedBarIndex.value = i;
-                    widget.onBarTap(selectedBarIndex.value);
-                  },
+            onPressed: () {
+              // selectedBarIndex.value = i;
+              widget.onBarTap(i);
+              print(i);
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

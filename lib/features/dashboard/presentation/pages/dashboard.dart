@@ -22,7 +22,7 @@ class _ExpNavbarState extends State<ExpNavbar> {
     BarItem(
       text: "Account",
       icon: 'assets/icons/account.svg',
-      selectedicon: 'assets/images/account.svg',
+      selectedicon: 'assets/icons/account.svg',
     ),
     BarItem(text: "Send", icon: '', selectedicon: ''),
     BarItem(
@@ -45,12 +45,19 @@ class _ExpNavbarState extends State<ExpNavbar> {
         width: Helpers.width(context),
         height: Helpers.height(context),
         child: Stack(
-          children:const <Widget>[
+          children: const <Widget>[
             // child,
           ],
         ),
       ),
-      floatingActionButton: const AppFab(),
+      floatingActionButton: InkWell(
+        onTap: () {
+          setState(() {
+            currentTab = 2;
+          });
+        },
+        child: const AppFab(),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 2),

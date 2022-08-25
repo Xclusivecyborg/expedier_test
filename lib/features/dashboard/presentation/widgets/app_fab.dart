@@ -11,20 +11,23 @@ class AppFab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // alignment: Alignment.center,
-      padding: const EdgeInsets.all(3),
+      padding: const EdgeInsets.all(5),
       decoration: const BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
       ),
-      child: FloatingActionButton(
-        mini: true,
-        heroTag: "btn1",
-        onPressed: () {},
-        backgroundColor: AppColors.blue,
+      child: Container(
+        alignment: Alignment.center,
+        height: 40,
+        width: 40,
+        decoration: const BoxDecoration(
+          color: AppColors.blue,
+          shape: BoxShape.circle,
+        ),
         child: SvgPicture.asset(
           'assets/icons/send.svg',
           color: Colors.white,
-          fit: BoxFit.contain,
+          fit: BoxFit.scaleDown,
           alignment: Alignment.centerRight,
         ),
       ),
