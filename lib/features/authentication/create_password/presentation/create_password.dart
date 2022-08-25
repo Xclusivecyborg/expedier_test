@@ -1,8 +1,8 @@
-import 'package:country_calling_code_picker/picker.dart';
 import 'package:expedier_test/core/utils/colors.dart';
 import 'package:expedier_test/core/utils/constants.dart';
 import 'package:expedier_test/core/utils/helpers.dart';
 import 'package:expedier_test/core/utils/validator.dart';
+import 'package:expedier_test/features/authentication/biometric/presentation/biometric.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:expedier_test/general_widgets/app_textfield.dart';
 import 'package:expedier_test/general_widgets/pop_button.dart';
@@ -113,14 +113,12 @@ class _CreatePasswordState extends State<CreatePassword> {
                   radius: 6,
                   text: "Continue",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => VErifyOTP(
-                    //       phoneNumber: _countryController.text,
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BiometricAuth(),
+                      ),
+                    );
                   },
                 ),
                 SizedBox(
