@@ -1,6 +1,7 @@
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:expedier_test/core/utils/colors.dart';
 import 'package:expedier_test/features/authentication/signup/presentation/sign_up.dart';
+import 'package:expedier_test/features/dashboard/presentation/pages/dashboard.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:expedier_test/general_widgets/app_textfield.dart';
 import 'package:expedier_test/general_widgets/country_code_textfield.dart';
@@ -113,12 +114,12 @@ class _LoginState extends State<Login> {
                   radius: 6,
                   text: "Login",
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const SignUp(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ExpNavbar(),
+                      ),
+                    );
                   },
                 ),
                 const SizedBox(
