@@ -1,4 +1,5 @@
 import 'package:expedier_test/core/utils/helpers.dart';
+import 'package:expedier_test/features/dashboard/presentation/pages/home.dart';
 import 'package:expedier_test/features/dashboard/presentation/widgets/app_fab.dart';
 import 'package:expedier_test/features/dashboard/presentation/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +45,7 @@ class _ExpNavbarState extends State<ExpNavbar> {
       body: SizedBox(
         width: Helpers.width(context),
         height: Helpers.height(context),
-        child: Stack(
-          children: const <Widget>[
-            // child,
-          ],
-        ),
+        child: views[currentTab],
       ),
       floatingActionButton: InkWell(
         onTap: () {
@@ -73,4 +70,20 @@ class _ExpNavbarState extends State<ExpNavbar> {
       ),
     );
   }
+
+  List<Widget> get views => const [
+        HomeView(),
+        Center(
+          child: Text("Account"),
+        ),
+        Center(
+          child: Text("Send"),
+        ),
+        Center(
+          child: Text("Recipients"),
+        ),
+        Center(
+          child: Text("Bills"),
+        ),
+      ];
 }
