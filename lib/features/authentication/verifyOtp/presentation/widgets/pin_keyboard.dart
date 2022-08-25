@@ -172,9 +172,9 @@ class PinKeyBoard extends StatelessWidget {
                       height: Helpers.width(context) * 0.15,
                       child: index == 0
                           ? const Icon(
-                              Icons.check_circle_rounded,
-                              color: AppColors.primaryColor,
-                              size: 30,
+                              Icons.donut_large,
+                              color: AppColors.naveyBlue,
+                              size: 4,
                             )
                           : index == 1
                               ? Center(
