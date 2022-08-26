@@ -1,6 +1,7 @@
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:expedier_test/core/utils/colors.dart';
 import 'package:expedier_test/core/utils/helpers.dart';
+import 'package:expedier_test/features/authentication/signup/presentation/views/privacy_policy.dart';
 import 'package:expedier_test/features/authentication/verifyOtp/presentation/verify_otp.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:expedier_test/general_widgets/app_textfield.dart';
@@ -136,7 +137,15 @@ class _SignUpState extends State<SignUp> {
                           fontSize: 12,
                           fontWeight: FontWeight.w300,
                         ),
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PrivacyPolicy(),
+                              ),
+                            );
+                          },
                       ),
                     ],
                   ),
