@@ -13,13 +13,14 @@ class AppButton extends StatelessWidget {
     this.margin,
     this.height,
     this.isLoading = false,
-    this.hasBorder = false, this.radius = 10,
+    this.hasBorder = false,
+    this.radius = 10,
   }) : super(key: key);
   final Color? color, textColor;
   final String? text;
   final void Function()? onTap;
   final double? width, height;
-   final double radius;
+  final double radius;
   final EdgeInsetsGeometry? padding, margin;
   final bool isLoading, hasBorder;
 
@@ -70,9 +71,10 @@ class AppButton extends StatelessWidget {
               ),
             if (isLoading)
               const SizedBox(
-                  height: 30,
-                  width: 30,
-                  child: CircularProgressIndicator.adaptive())
+                height: 30,
+                width: 30,
+                child: CircularProgressIndicator.adaptive(),
+              )
           ],
         ),
       ),

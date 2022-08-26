@@ -30,7 +30,7 @@ class HomeWalletsWidget extends StatelessWidget {
         SizedBox(
           height: 160,
           child: ListView.separated(
-            padding: const EdgeInsets.fromLTRB(20, 10, 0, 20),
+            padding: const EdgeInsets.fromLTRB(20, 10, 0, 30),
             separatorBuilder: (context, index) => const SizedBox(width: 16),
             scrollDirection: Axis.horizontal,
             itemCount: wallets.length,

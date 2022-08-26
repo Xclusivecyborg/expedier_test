@@ -59,14 +59,14 @@ class _ExpNavbarState extends State<ExpNavbar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 2),
         child: AnimatedBottomBar(
-            barItems: barItems,
-            tabIndex: currentTab,
-            onBarTap: (index) {
-              setState(() {
-                currentTab = index;
-                // tabsRouter.setActiveIndex(index);
-              });
-            }),
+          barItems: barItems,
+          tabIndex: currentTab,
+          onBarTap: (index) {
+            setState(() {
+              currentTab = index;
+            });
+          },
+        ),
       ),
     );
   }

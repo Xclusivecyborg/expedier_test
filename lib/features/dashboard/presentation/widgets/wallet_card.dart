@@ -21,8 +21,8 @@ class WalletCard extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 5,
-            blurRadius: 15,
-            offset: const Offset(0, 7), // changes position of shadow
+            blurRadius: 10,
+            offset: const Offset(0, 4), // changes position of shadow
           ),
         ],
       ),

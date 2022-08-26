@@ -3,7 +3,10 @@ import 'package:expedier_test/features/dashboard/domain/wallet.dart';
 import 'package:expedier_test/features/dashboard/presentation/widgets/balance_card.dart';
 import 'package:expedier_test/features/dashboard/presentation/widgets/home_header.dart';
 import 'package:expedier_test/features/dashboard/presentation/widgets/home_wallets.dart';
+import 'package:expedier_test/features/dashboard/presentation/widgets/list_of_transactions.dart';
 import 'package:flutter/material.dart';
+
+import '../../domain/transaction.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -47,6 +50,37 @@ class _HomeViewState extends State<HomeView> {
         symbol: "usd",
       ),
     ];
+
+    List<Transaction> transactions = [
+      Transaction(
+        name: "Victor Olatunde",
+        status: "Success",
+        amount: "1,050.00 CAD",
+        image: "person",
+        date: "August 06, 10:00AM",
+      ),
+      Transaction(
+        name: "Victor Olatunde",
+        status: "Success",
+        amount: "1,050.00 CAD",
+        image: "person",
+        date: "August 06, 10:00AM",
+      ),
+      Transaction(
+        name: "Victor Olatunde",
+        status: "Success",
+        amount: "1,050.00 CAD",
+        image: "person",
+        date: "August 06, 10:00AM",
+      ),
+      Transaction(
+        name: "Victor Olatunde",
+        status: "Success",
+        amount: "1,050.00 CAD",
+        image: "person",
+        date: "August 06, 10:00AM",
+      ),
+    ];
     return SafeArea(
       child: Column(
         children: <Widget>[
@@ -57,23 +91,23 @@ class _HomeViewState extends State<HomeView> {
               height: Helpers.height(context) * 0.75,
               child: SingleChildScrollView(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     HomeWalletsWidget(wallets: wallets),
                     const SizedBox(height: 15),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(40, 15, 35, 25),
+                      padding: EdgeInsets.fromLTRB(40, 0, 35, 25),
                       child: Text(
                         "Recent Transactions",
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
-
-                    //  ListOfTransactions(
-                    //       transactions: state.transactions.take(7).toList(),
-                    //     )
+                    ListOfTransactions(
+                      transactions: transactions,
+                    )
                   ],
                 ),
               ),

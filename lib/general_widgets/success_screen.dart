@@ -63,10 +63,11 @@ class SuccessScreeen extends StatelessWidget {
                 text: actionText,
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => route,
-                      ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => route,
+                    ),
+                  );
                 },
               ),
               const SizedBox(height: 10),
