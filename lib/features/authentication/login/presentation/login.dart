@@ -1,6 +1,6 @@
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:expedier_test/core/utils/colors.dart';
-import 'package:expedier_test/features/authentication/signup/presentation/sign_up.dart';
+import 'package:expedier_test/features/authentication/signup/presentation/views/sign_up.dart';
 import 'package:expedier_test/features/dashboard/presentation/pages/dashboard.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:expedier_test/general_widgets/app_textfield.dart';

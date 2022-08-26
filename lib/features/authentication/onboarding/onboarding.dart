@@ -3,7 +3,7 @@ import 'package:expedier_test/core/utils/colors.dart';
 import 'package:expedier_test/core/utils/strings.dart';
 import 'package:expedier_test/features/authentication/login/presentation/login.dart';
 import 'package:expedier_test/features/authentication/onboarding/widgets/carousel_indicator.dart';
-import 'package:expedier_test/features/authentication/signup/presentation/sign_up.dart';
+import 'package:expedier_test/features/authentication/signup/presentation/views/sign_up.dart';
 import 'package:expedier_test/general_widgets/app_button.dart';
 import 'package:flutter/material.dart';
 

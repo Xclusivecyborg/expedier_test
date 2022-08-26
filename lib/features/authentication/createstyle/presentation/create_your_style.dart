@@ -65,7 +65,9 @@ class _CreateYourStyleState extends State<CreateYourStyle> {
                   height: 33,
                 ),
                 CreateStyleTextfield(
-                    controller: _styleController, hintText: "Mofiyin"),
+                  controller: _styleController,
+                  hintText: "Mofiyin",
+                ),
                 SizedBox(
                   height: Helpers.height(context) * 0.065,
                 ),
