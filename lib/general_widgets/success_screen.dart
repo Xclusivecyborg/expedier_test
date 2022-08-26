@@ -62,11 +62,14 @@ class SuccessScreeen extends StatelessWidget {
                 radius: 6,
                 text: actionText,
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
                       builder: (context) => route,
                     ),
+                    ((route) {
+                      return false;
+                    }),
                   );
                 },
               ),

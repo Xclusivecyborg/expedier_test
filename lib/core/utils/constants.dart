@@ -5,6 +5,10 @@ const String invalidEmailField =
     "Email provided isn't valid.Try another email address";
 const String passwordLengthError = 'Password length must be greater than 8';
 const String invalidPassword = 'Password must meet all requirements';
+const String uppercase = 'Password must contain at least one uppercase letter';
+const String lowercase = 'Password must contain at least one lower letter';
+const String atleastnumber = 'Password must contain at least one number';
+const String specialCharacter = 'Password must contain at least one special character';
 const String emptyUsernameField = 'Username  cannot be empty';
 const String usernameLengthError = 'Username length must be greater than 6';
 const String emailRegex = '[a-zA-Z0-9+._%-+]{1,256}'
@@ -20,7 +24,6 @@ const String upperCaseRegex = r'^(?=.*?[A-Z]).{1,}$';
 const String lowerCaseRegex = r'^(?=.*?[a-z]).{1,}$';
 const String symbolRegex = r'^(?=.*?[!@#\$&*~]).{1,}$';
 const String digitRegex = r'^(?=.*?[0-9]).{1,}$';
-
 
 const String phoneNumberRegex = r'0[789][01]\d{8}';
 

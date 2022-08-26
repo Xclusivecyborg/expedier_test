@@ -21,7 +21,7 @@ class _CreatePasswordState extends State<CreatePassword> {
       TextEditingController();
 
   final symbolExp = RegExp(symbolRegex);
-
+  final _formkey = GlobalKey<FormState>();
   @override
   void dispose() {
     _passwordController.dispose();
@@ -36,95 +36,101 @@ class _CreatePasswordState extends State<CreatePassword> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 83.0, left: 22, right: 22),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: const [
-                    PopButton(),
-                    SizedBox(
-                      width: 42,
-                    ),
-                    Text(
-                      "Create Password",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 27,
+            child: Form(
+              key: _formkey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      PopButton(),
+                      SizedBox(
+                        width: 42,
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                SizedBox(
-                  height: Helpers.height(context) * 0.065,
-                ),
-                AppTextField(
-                  onChange: (p0) => setState(() {}),
-                  height: 42,
-                  hintText: "Enter password",
-                  controller: _passwordController,
-                  validateFunction: (value) =>
-                      PasswordValidator.validatePassword(value!),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                AppTextField(
-                  onChange: (p0) => setState(() {}),
-                  height: 42,
-                  hintText: "Confirm password",
-                  controller: _confirmPasswordController,
-                  validateFunction: (value) {
-                    if (value != _passwordController.text) {
-                      return "Password does not match";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                _validatorRow(
-                  isValidated:
-                      _passwordController.text.contains(RegExp(r'[A-Z]')),
-                  text: "At lease one uppercase",
-                ),
-                _validatorRow(
-                  isValidated:
-                      _passwordController.text.contains(RegExp(r'[0-9]')),
-                  text: "At lease one number",
-                ),
-                _validatorRow(
-                  isValidated: symbolExp.hasMatch(_passwordController.text),
-                  text: "At lease one special character",
-                ),
-                _validatorRow(
-                  isValidated: _passwordController.text.length >= 8,
-                  text: "Mininum of 8 characters",
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                AppButton(
-                  margin: EdgeInsets.zero,
-                  radius: 6,
-                  text: "Continue",
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const BiometricAuth(),
+                      Text(
+                        "Create Password",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 27,
+                        ),
                       ),
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: Helpers.height(context) * 0.09,
-                ),
-              ],
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  SizedBox(
+                    height: Helpers.height(context) * 0.065,
+                  ),
+                  AppTextField(
+                    onChange: (p0) => setState(() {}),
+                    height: 42,
+                    hintText: "Enter password",
+                    controller: _passwordController,
+                    validateFunction: Validators.password(),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  AppTextField(
+                    onChange: (p0) => setState(() {}),
+                    height: 42,
+                    hintText: "Confirm password",
+                    controller: _confirmPasswordController,
+                    validateFunction: (value) {
+                      if (value != _passwordController.text) {
+                        return "Password does not match";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  _validatorRow(
+                    isValidated:
+                        _passwordController.text.contains(RegExp(r'[A-Z]')),
+                    text: "At lease one uppercase",
+                  ),
+                  _validatorRow(
+                    isValidated:
+                        _passwordController.text.contains(RegExp(r'[0-9]')),
+                    text: "At lease one number",
+                  ),
+                  _validatorRow(
+                    isValidated: symbolExp.hasMatch(_passwordController.text),
+                    text: "At lease one special character",
+                  ),
+                  _validatorRow(
+                    isValidated: _passwordController.text.length >= 8,
+                    text: "Mininum of 8 characters",
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  AppButton(
+                    margin: EdgeInsets.zero,
+                    radius: 6,
+                    text: "Continue",
+                    onTap: () {
+                      if (_formkey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BiometricAuth(),
+                          ),
+                        );
+                        return;
+                      }
+                      ScaffoldMessenger.of(context).showSnackBar(Helpers.snack);
+                    },
+                  ),
+                  SizedBox(
+                    height: Helpers.height(context) * 0.09,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -161,7 +167,3 @@ class _CreatePasswordState extends State<CreatePassword> {
     );
   }
 }
-
-
-
-                            // PasswordValidator.validatePassword(value!),
