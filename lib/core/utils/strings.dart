@@ -3,4 +3,16 @@ class AppStrings {
       "Empowering you to\nsucceed financially,\nGlobally";
   static const String slide2Text = "Pay for anything,\nanywhere";
   static const String slide3Text = "Send and Receive\nMoney";
+
+  static const privacyPolicy = '''lorenekrelrgnv jkvkjjjsvhjfvbduyouecmufruifeir
+jhefhrfryfukrwkluefyeuyfbeufybevyusbleuyfeoyfe
+jhekrvyrukbyeouwyenheleeeeufeifbelwbueeb
+ieheebeweiufiebufiufuririufbriufbufiwlub ueiieuel
+jheebhwuyowbfeuyyfhfuorbuuyrubrfuyrfrorfbr
+ribrufbrfbrfriufrfi.
+
+hjrjrhfrhjfrfirirvbivivruvirurvbruiivuririrurriuryur
+rjrufrbiiubfurbfripwbfbrfruyfryfiurfbbrfhrfbrf
+riwuruurfirwibfrbbruriiwyrwoiwuowwpiwubfaou
+iuriueurburbfiurfrurubfrfbrufirfbrf.''';
 }

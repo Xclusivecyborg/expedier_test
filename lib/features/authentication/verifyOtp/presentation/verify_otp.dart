@@ -44,7 +44,11 @@ class _VErifyOTPState extends State<VErifyOTP> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(
-                top: 50.0, left: 22, right: 22, bottom: 20),
+              top: 50.0,
+              left: 22,
+              right: 22,
+              bottom: 20,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
