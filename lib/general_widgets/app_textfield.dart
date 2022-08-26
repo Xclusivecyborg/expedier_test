@@ -34,7 +34,7 @@ class AppTextField extends StatefulWidget {
   final bool obscureText;
   final bool? enabled;
   final FormFieldValidator<String>? validateFunction;
-  final void Function(String)? onSaved, onChange;
+  final Function(String)? onSaved, onChange;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final Widget? suffixIcon;
@@ -80,7 +80,14 @@ class _AppTextFieldState extends State<AppTextField> {
             obscureText: widget.obscureText,
             readOnly: widget.readOnly,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(top: 0, bottom: 3),
+              contentPadding: EdgeInsets.only(
+                top: error != null
+                    ? 18
+                    : widget.suffixIcon != null
+                        ? 10
+                        : 0,
+                bottom: 3,
+              ),
               suffixIcon: widget.suffixIcon,
               hintText: widget.hintText,
               filled: false,
